@@ -13,4 +13,5 @@ Residential protection and control system.
 7. Register routes and cors
 8. Para rodar arquivos "tsx" qdo salvar: npm install tsx
 9. Agora para rodar: npm run dev (mudar script)
+10. Gerar a conexão: npx prisma generate
 
