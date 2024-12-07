@@ -101,7 +101,13 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 # iot-home-alarm-back
 
-## Install
+## nest
 npm i class-validator@0.14.0 class-transformer@0.5.1
 
 npm i @nestjs/mapped-types  // Não faz parte da instalação do nest, serve para update partial
+
+## DB Prisma
+npm i -D prisma
+npx prisma init
+Criar o prismaClient, caso não tenha banco de dados ? npx prisma db pull : npx prisma generate
+Para mapear as tabelas no Banco de Dados: npx prisma migrate dev --name init
