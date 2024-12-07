@@ -1,8 +1,0 @@
-@baseUrl= http://localhost:3333
-
-###
-## ROTAS USERS
-
-###
-## ROTA DE TESTE
-GET {{baseUrl}}
