@@ -17,7 +17,7 @@ export class UserController {
 
     @Get()
     async list() {
-        return { users: [] }
+        return this.userServices.list();
     }
 
     // @Get(':id')
@@ -27,7 +27,7 @@ export class UserController {
 
     @Get(':id')
     async show(@Param('id', ParseIntPipe) id: number) {
-        return { user: {}, id }
+        return this.userServices.show(id);
     }
 
     // @Put(':id')
