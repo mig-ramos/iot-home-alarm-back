@@ -103,3 +103,5 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ## Install
 npm i class-validator@0.14.0 class-transformer@0.5.1
+
+npm i @nestjs/mapped-types  // Não faz parte da instalação do nest, serve para update partial
