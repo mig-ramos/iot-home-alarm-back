@@ -8,16 +8,16 @@ import { UserService } from './user.service';
 @Controller('users')
 export class UserController {
 
-    constructor(private readonly userServices: UserService) { }
+    constructor(private readonly userService: UserService) { }
 
     @Post()
-    async create(@Body() { name, email, password }: CreateUserDTO) {
-        return this.userServices.create({ name, email, password });
+    async create(@Body() { name, email, password, active }: CreateUserDTO) {
+        return this.userService.create({ name, email, password, active });
     }
 
     @Get()
     async list() {
-        return this.userServices.list();
+        return this.userService.list();
     }
 
     // @Get(':id')
@@ -27,7 +27,7 @@ export class UserController {
 
     @Get(':id')
     async show(@Param('id', ParseIntPipe) id: number) {
-        return this.userServices.show(id);
+        return this.userService.show(id);
     }
 
     // @Put(':id')
@@ -40,12 +40,8 @@ export class UserController {
     // }
 
     @Put(':id')
-    async update(@Body() { name, email, password }: UpdatePutUserDTO, @Param('id', ParseIntPipe) id: number) {
-        return {
-            method: 'put',
-            name, email, password,
-            id
-        }
+    async update(@Body() data: UpdatePutUserDTO, @Param('id', ParseIntPipe) id: number) {
+        return this.userService.update(id, data);
     }
 
     // @Patch(':id')
@@ -58,12 +54,8 @@ export class UserController {
     // }
 
     @Patch(':id')
-    async updatePartial(@Body() { name, email, password }: UpdatePatchUserDTO, @Param('id', ParseIntPipe) id: number) {
-        return {
-            method: 'patch',
-            name, email, password,
-            id
-        }
+    async updatePartial(@Body() data: UpdatePatchUserDTO, @Param('id', ParseIntPipe) id: number) {
+        return this.userService.updatePartial(id, data);
     }
 
     // @Delete(':id')
@@ -74,6 +66,6 @@ export class UserController {
     // No caso do Id ser número, esta alteraçõ deve ser feita em toda a api
     @Delete(':id')
     async delete(@Param('id', ParseIntPipe) id: number) {
-        return { id }
+        return this.userService.delete(id);
     }
 }
