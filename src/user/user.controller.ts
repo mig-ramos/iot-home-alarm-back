@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
+// import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Put } from '@nestjs/common';
 import { CreateUserDTO } from 'src/dto/create-user.dto';
 import { UpdatePatchUserDTO } from 'src/dto/update-patch-user.dto';
 import { UpdatePutUserDTO } from 'src/dto/update-put-user.dto';
@@ -40,7 +41,13 @@ export class UserController {
     }
 
     @Delete(':id')
-    async delete(@Param() param) {
-        return { param }
+    async delete(@Param('id') id) {
+        return { id }
     }
+
+    // No caso do Id ser número, esta alteraçõ deve ser feita em toda a api
+    // @Delete(':id')
+    // async delete(@Param('id', ParseIntPipe) id: number) {
+    //     return { id }
+    // }
 }
