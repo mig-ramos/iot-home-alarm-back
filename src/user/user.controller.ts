@@ -1,5 +1,5 @@
 // import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Patch, Post, Put } from '@nestjs/common';
 import { CreateUserDTO } from 'src/dto/create-user.dto';
 import { UpdatePatchUserDTO } from 'src/dto/update-patch-user.dto';
 import { UpdatePutUserDTO } from 'src/dto/update-put-user.dto';
@@ -27,6 +27,7 @@ export class UserController {
 
     @Get(':id')
     async show(@Param('id', ParseIntPipe) id: number) {
+        await this.exists(id);
         return this.userService.show(id);
     }
 
@@ -41,6 +42,7 @@ export class UserController {
 
     @Put(':id')
     async update(@Body() data: UpdatePutUserDTO, @Param('id', ParseIntPipe) id: number) {
+        await this.exists(id);
         return this.userService.update(id, data);
     }
 
@@ -55,6 +57,7 @@ export class UserController {
 
     @Patch(':id')
     async updatePartial(@Body() data: UpdatePatchUserDTO, @Param('id', ParseIntPipe) id: number) {
+        await this.exists(id);
         return this.userService.updatePartial(id, data);
     }
 
@@ -66,6 +69,11 @@ export class UserController {
     // No caso do Id ser número, esta alteraçõ deve ser feita em toda a api
     @Delete(':id')
     async delete(@Param('id', ParseIntPipe) id: number) {
+        await this.exists(id);
         return this.userService.delete(id);
+    }
+
+    async exists(id: number) {
+        if (!(await this.show(id))) throw new NotFoundException('O Usuário não existe.')
     }
 }
