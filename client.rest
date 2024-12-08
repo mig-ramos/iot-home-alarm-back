@@ -49,3 +49,46 @@ content-type: application/json
 {
     "name": "Mari Ramos"
 }
+
+### ROTAS AUTH
+
+###
+## LOGIN
+POST {{baseUrl}}/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "mari@teste.com",
+    "password": "123456" 
+}
+
+###
+## REGISTER
+POST {{baseUrl}}/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Mari Ramos",
+    "email": "mari@teste.com",
+    "password": "123456"
+}
+
+###
+## FORGET
+POST {{baseUrl}}/auth/forget HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "mari@teste.com"
+}
+
+###
+## FORGET
+POST {{baseUrl}}/auth/reset HTTP/1.1
+Content-Type: application/json
+
+{
+    "password": "654321",
+    "token": "93473.3434.23434"
+}
+
