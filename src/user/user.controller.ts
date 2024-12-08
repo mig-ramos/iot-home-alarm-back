@@ -5,12 +5,13 @@ import { UpdatePatchUserDTO } from 'src/dto/update-patch-user.dto';
 import { UpdatePutUserDTO } from 'src/dto/update-put-user.dto';
 import { UserService } from './user.service';
 import { LogInterceptor } from 'src/interceptors/log.interceptor';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 // @UseInterceptors(LogInterceptor)  // Exemplo de Intereptor
 @Controller('users')
 export class UserController {
 
-    constructor(private readonly userService: UserService) { }
+    constructor(private readonly userService: UserService, private readonly prisma: PrismaService) { }
 
     @Post()
     async create(@Body() { name, email, password, active }: CreateUserDTO) {
@@ -29,6 +30,7 @@ export class UserController {
 
     @Get(':id')
     async show(@Param('id', ParseIntPipe) id: number) {
+        await this.exists(id);
         return this.userService.show(id);
     }
 
@@ -75,6 +77,12 @@ export class UserController {
     }
 
     async exists(id: number) {
-        if (!(await this.show(id))) throw new NotFoundException('O Usuário não existe.')
+        if (!(await this.prisma.user.count({
+            where: {
+                id,
+            }
+        }))) {
+            throw new NotFoundException('O Usuário não existe.')
+        }
     }
 }
