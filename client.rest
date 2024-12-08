@@ -1,0 +1,51 @@
+@baseUrl=http://localhost:3333
+
+###
+## TESTE
+GET {{baseUrl}} HTTP/1.1
+
+
+### ROTAS DOS USERS
+
+###
+## FIND ALL
+GET {{baseUrl}}/users HTTP/1.1
+
+###
+## FIND ONE
+GET {{baseUrl}}/users/3 HTTP/1.1
+
+###
+## DELETE
+DELETE {{baseUrl}}/users/2 HTTP/1.1
+
+###
+## CREATE
+POST {{baseUrl}}/users HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Mari Ramos",
+    "email": "mari@teste.com",
+    "password": "123456"
+}
+
+###
+## UPDATE
+PUT {{baseUrl}}/users/3 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Mari C Ramos",
+    "email": "mari@teste.com",
+    "password": "123456"
+}
+
+###
+## UPDATE PARTIAL
+PATCH {{baseUrl}}/users/3 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Mari Ramos"
+}

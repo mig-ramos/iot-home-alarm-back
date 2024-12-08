@@ -1,10 +1,12 @@
 // import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
-import { Body, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Patch, Post, Put, UseInterceptors } from '@nestjs/common';
 import { CreateUserDTO } from 'src/dto/create-user.dto';
 import { UpdatePatchUserDTO } from 'src/dto/update-patch-user.dto';
 import { UpdatePutUserDTO } from 'src/dto/update-put-user.dto';
 import { UserService } from './user.service';
+import { LogInterceptor } from 'src/interceptors/log.interceptor';
 
+// @UseInterceptors(LogInterceptor)  // Exemplo de Intereptor
 @Controller('users')
 export class UserController {
 
@@ -27,7 +29,6 @@ export class UserController {
 
     @Get(':id')
     async show(@Param('id', ParseIntPipe) id: number) {
-        await this.exists(id);
         return this.userService.show(id);
     }
 
