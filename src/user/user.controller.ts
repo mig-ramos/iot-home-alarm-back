@@ -12,19 +12,20 @@ import { RoleGuard } from 'src/guards/role.guard';
 import { AuthGuard } from 'src/guards/auth.guard';
 
 // @UseInterceptors(LogInterceptor)  // Exemplo de Intereptor
+@Roles(Role.Admin)
 @UseGuards(AuthGuard, RoleGuard)
 @Controller('users')
 export class UserController {
 
     constructor(private readonly userService: UserService, private readonly prisma: PrismaService) { }
 
-    @Roles(Role.ADMIN)
+
     @Post()
     async create(@Body() { name, email, password, active, role }: CreateUserDTO) {
         return this.userService.create({ name, email, password, active, role });
     }
 
-    @Roles(Role.ADMIN)
+
     @Get()
     async list() {
         return this.userService.list();
@@ -35,7 +36,6 @@ export class UserController {
     //     return { user: {}, param }
     // }
 
-    @Roles(Role.ADMIN)
     @Get(':id')
     async show(@ParamId() id: number) {
         await this.exists(id);
@@ -51,7 +51,7 @@ export class UserController {
     //     }
     // }
 
-    @Roles(Role.ADMIN)
+
     @Put(':id')
     async update(@Body() data: UpdatePutUserDTO, @ParamId() id: number) {
         await this.exists(id);
@@ -67,7 +67,7 @@ export class UserController {
     //     }
     // }
 
-    @Roles(Role.ADMIN)
+
     @Patch(':id')
     async updatePartial(@Body() data: UpdatePatchUserDTO, @ParamId() id: number) {
         await this.exists(id);
@@ -80,7 +80,7 @@ export class UserController {
     // }
 
     // No caso do Id ser número, esta alteraçõ deve ser feita em toda a api
-    @Roles(Role.ADMIN)
+
     @Delete(':id')
     async delete(@ParamId() id: number) {
         await this.exists(id);

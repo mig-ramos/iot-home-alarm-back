@@ -42,9 +42,9 @@ export class UserService {
         })
     }
 
-    async updatePartial(id: number, { name, email, password, active }: UpdatePatchUserDTO) {
+    async updatePartial(id: number, { name, email, password, active, role }: UpdatePatchUserDTO) {
         return this.prisma.user.update({
-            data: { name, email, password, active },
+            data: { name, email, password, active, role },
             where: {
                 id,
             }

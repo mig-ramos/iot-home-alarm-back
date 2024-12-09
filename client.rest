@@ -1,5 +1,5 @@
 @baseUrl=http://localhost:3333
-@token =Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ik1hcmkgUmFtb3MiLCJlbWFpbCI6Im1hcmlAdGVzdGUuY29tIiwiaWF0IjoxNzMzNzgwMzAyLCJleHAiOjE3MzQzODUxMDIsImF1ZCI6InVzZXJzIiwiaXNzIjoibG9naW4iLCJzdWIiOiIzIn0.Vd9isAzrwCsI_nj6kowqWjQL9PGOg0e2uoX0EXwe-8g
+@token =Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ik1hcmkgUmFtb3MiLCJlbWFpbCI6Im1hcmlAdGVzdGUuY29tIiwiaWF0IjoxNzMzNzgyNjkzLCJleHAiOjE3MzQzODc0OTMsImF1ZCI6InVzZXJzIiwiaXNzIjoibG9naW4iLCJzdWIiOiIzIn0.xhUnMmgcBy9nrzW8aGQtQzU4pri6OLesX7xuyyT0Hko
 
 ###
 ## TESTE
@@ -11,23 +11,27 @@ GET {{baseUrl}} HTTP/1.1
 ###
 ## FIND ALL
 GET {{baseUrl}}/users HTTP/1.1
+Authorization: {{token}}
 
 ###
 ## FIND ONE
 GET {{baseUrl}}/users/1 HTTP/1.1
+Authorization: {{token}}
 
 ###
 ## DELETE
 DELETE {{baseUrl}}/users/2 HTTP/1.1
+Authorization: {{token}}
 
 ###
 ## CREATE
 POST {{baseUrl}}/users HTTP/1.1
 content-type: application/json
+Authorization: {{token}}
 
 {
-    "name": "Mari Ramos",
-    "email": "mari@teste.com",
+    "name": "Miguel Ramos",
+    "email": "miguel@teste.com",
     "password": "123456"
 }
 
@@ -35,6 +39,7 @@ content-type: application/json
 ## UPDATE
 PUT {{baseUrl}}/users/3 HTTP/1.1
 content-type: application/json
+Authorization: {{token}}
 
 {
     "name": "Mari C Ramos",
@@ -46,6 +51,7 @@ content-type: application/json
 ## UPDATE PARTIAL
 PATCH {{baseUrl}}/users/3 HTTP/1.1
 content-type: application/json
+Authorization: {{token}}
 
 {
     "name": "Mari Ramos"
