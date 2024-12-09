@@ -14,10 +14,10 @@ export class AuthService {
     constructor(
         private readonly jwtService: JwtService,
         private readonly prisma: PrismaService,
-        private readonly userService: UserService
+        private readonly userService: UserService,
     ) { }
 
-    async createToken(user: User) {
+    createToken(user: User) {
         return {
             accessToken: this.jwtService.sign({
                 id: user.id,
@@ -45,7 +45,7 @@ export class AuthService {
         }
     }
 
-    async isValidToken(token: string) {
+    isValidToken(token: string) {
         try {
             this.checkToken(token);
             return true;
