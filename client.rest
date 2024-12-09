@@ -1,5 +1,5 @@
 @baseUrl=http://localhost:3333
-@token =Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ik1hcmkgUmFtb3MiLCJlbWFpbCI6Im1hcmlAdGVzdGUuY29tIiwiaWF0IjoxNzMzNzY4Mjg4LCJleHAiOjE3MzQzNzMwODgsImF1ZCI6InVzZXJzIiwiaXNzIjoibG9naW4iLCJzdWIiOiIzIn0.uASXiS6dZ8ER58HxKYFmBVqbZRFurXZMYSZV0d42ANM
+@token =Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ik1hcmkgUmFtb3MiLCJlbWFpbCI6Im1hcmlAdGVzdGUuY29tIiwiaWF0IjoxNzMzNzgwMzAyLCJleHAiOjE3MzQzODUxMDIsImF1ZCI6InVzZXJzIiwiaXNzIjoibG9naW4iLCJzdWIiOiIzIn0.Vd9isAzrwCsI_nj6kowqWjQL9PGOg0e2uoX0EXwe-8g
 
 ###
 ## TESTE
@@ -14,7 +14,7 @@ GET {{baseUrl}}/users HTTP/1.1
 
 ###
 ## FIND ONE
-GET {{baseUrl}}/users/3 HTTP/1.1
+GET {{baseUrl}}/users/1 HTTP/1.1
 
 ###
 ## DELETE

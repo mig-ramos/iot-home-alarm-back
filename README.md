@@ -116,3 +116,5 @@ Após alteração da tabela ou banco: px prisma migrate dev --name <alteração>
 ## JWT
 npm i @nestjs/jwt
 Gerar secret em https://passwords-generator.org/ de 32 bits de tamanho
+
+<RBAC> ROLE-BASED ACCESS CONTROL - controle de acesso baseado em função.
