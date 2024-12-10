@@ -111,16 +111,16 @@ npm i -D prisma
 npx prisma init
 Criar o prismaClient, caso não tenha banco de dados ? npx prisma db pull : npx prisma generate
 Para mapear as tabelas no Banco de Dados: npx prisma migrate dev --name init
-Após alteração da tabela ou banco: px prisma migrate dev --name <alteração>
+Após alteração da tabela ou banco: px prisma migrate dev --name NOME_DA_ALTERAÇÃO
 
 ## JWT
 npm i @nestjs/jwt
 Gerar secret em https://passwords-generator.org/ de 32 bits de tamanho
 
-<RBAC> ROLE-BASED ACCESS CONTROL - controle de acesso baseado em função.
+RBAC - ROLE-BASED ACCESS CONTROL - controle de acesso baseado em função.
 
-<hash> password:  npm i bcrypt      <os tipos>:  npm i -D @types/bcrypt
+hash password:  npm i bcrypt      os tipos:  npm i -D @types/bcrypt
 
-npm i @nestjs/throttler - <ataque> de força bruta.
+npm i @nestjs/throttler - ATAQUE de força bruta.
 
 npm i @nestjs/config - para ler o arquivo .env
