@@ -122,3 +122,5 @@ Gerar secret em https://passwords-generator.org/ de 32 bits de tamanho
 <hash> password:  npm i bcrypt      <os tipos>:  npm i -D @types/bcrypt
 
 npm i @nestjs/throttler - <ataque> de força bruta.
+
+npm i @nestjs/config - para ler o arquivo .env
