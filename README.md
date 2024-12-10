@@ -120,3 +120,5 @@ Gerar secret em https://passwords-generator.org/ de 32 bits de tamanho
 <RBAC> ROLE-BASED ACCESS CONTROL - controle de acesso baseado em função.
 
 <hash> password:  npm i bcrypt      <os tipos>:  npm i -D @types/bcrypt
+
+npm i @nestjs/throttler - <ataque> de força bruta.
