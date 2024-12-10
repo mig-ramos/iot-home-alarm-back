@@ -9,8 +9,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
 import { FileModule } from './file/file.module';
 import { MailerModule } from '@nestjs-modules/mailer';
-import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter'
-
+import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
 
 @Module({
   imports: [
@@ -20,8 +19,8 @@ import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter'
         {
           ttl: 60,
           limit: 100,
-        }
-      ]
+        },
+      ],
     }),
     forwardRef(() => UserModule),
     PrismaModule,
@@ -33,8 +32,8 @@ import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter'
         port: 587,
         auth: {
           user: 'leola.dickinson@ethereal.email',
-          pass: 'FwXBQEDPznEfrkGrFx'
-        }
+          pass: 'FwXBQEDPznEfrkGrFx',
+        },
       }, // Email servidor
       defaults: {
         from: '"IOT Home Alarm" <leola.dickinson@ethereal.email>', // Quem esta enviando
@@ -49,10 +48,13 @@ import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter'
     }),
   ],
   controllers: [AppController],
-  providers: [AppService, {
-    provide: APP_GUARD,
-    useClass: ThrottlerGuard
-  }],
-  exports: [AppService]
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
+    },
+  ],
+  exports: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

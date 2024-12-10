@@ -148,3 +148,11 @@ npm install --save mjml
 Como se usa: https://nest-modules.github.io/mailer/docs/mailer.html
 
 Servidor que simula email: https://ethereal.email/create
+
+# FINAL PARA PRODUÇÃO
+"preprod": "npm run format && npm run lint",
+npm run lint   -   CORRIGIR OS ERROS 
+
+E por fim:  npm run prod
+
+FINALIZANDO PARA RODAR O RESULTADO DE TODOS OS ACERTOS: npm run start:prod
