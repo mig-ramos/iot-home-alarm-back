@@ -124,3 +124,7 @@ hash password:  npm i bcrypt      os tipos:  npm i -D @types/bcrypt
 npm i @nestjs/throttler - ATAQUE de força bruta.
 
 npm i @nestjs/config - para ler o arquivo .env
+
+## Images
+
+Instalar os tipos: npm i -D @types/multer  -  O multe já faz parte do express
