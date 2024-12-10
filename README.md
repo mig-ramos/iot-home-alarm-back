@@ -128,3 +128,21 @@ npm i @nestjs/config - para ler o arquivo .env
 ## Images
 
 Instalar os tipos: npm i -D @types/multer  -  O multe já faz parte do express
+
+## Envio de e-mails
+npm install nodemailer
+
+## Envio de e-mail pelo NestJS
+npm install --save @nestjs-modules/mailer nodemailer
+npm install --save-dev @types/nodemailer
+
+# if you want to use the template, you must install it;
+npm install --save handlebars
+#or
+# npm install --save pug
+#or
+npm install --save ejs
+#or
+npm install --save mjml
+
+Como se usa: https://nest-modules.github.io/mailer/docs/mailer.html
