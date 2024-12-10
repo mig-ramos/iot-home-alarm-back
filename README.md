@@ -146,3 +146,5 @@ npm install --save ejs
 npm install --save mjml
 
 Como se usa: https://nest-modules.github.io/mailer/docs/mailer.html
+
+Servidor que simula email: https://ethereal.email/create
